@@ -7,11 +7,11 @@
 ////////////////// Решение //////////////////
 
 const array = [2, 5, 9, 15, 0, 4];
-var CurrentNumber;
+let currentNumber;
 
-for (CurrentNumber of array) {
-    if ((CurrentNumber > 3) && (CurrentNumber < 10)) {
-        console.log(CurrentNumber);
+for (currentNumber of array) {
+    if ((currentNumber > 3) && (currentNumber < 10)) {
+        console.log(currentNumber);
     }
 }
 

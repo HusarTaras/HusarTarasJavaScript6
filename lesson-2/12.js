@@ -7,10 +7,10 @@
 ////////////////// Решение //////////////////
 
 const array = [1, 2, 5, 9, 4, 13, 4, 10];
-var CurrentElement;
+let currentElement;
 
-for (CurrentElement of array) {
-    if (CurrentElement === 4) {
+for (currentElement of array) {
+    if (currentElement === 4) {
         console.log('Есть');
         break;
     }

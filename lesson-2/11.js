@@ -8,12 +8,12 @@
 ////////////////// Решение //////////////////
 
 const array = [2, -1, -3, 15, 0, 4];
-var sum  = 0;
-var CurrentElement;
+let sum  = 0;
+let currentElement;
 
-for(CurrentElement of  array) {
-    if(CurrentElement > 0) {
-        sum = sum + CurrentElement;
+for(currentElement of  array) {
+    if(currentElement > 0) {
+        sum = sum + currentElement;
     }
 }
 console.log(sum);

@@ -7,11 +7,12 @@
 ////////////////// Решение //////////////////
 
 const array = [1, 2, 3, 4];
-var summa  = 0;
+let summa  = 0;
+let curNum;
 
-for (CurNum of array) {
-    if (CurNum % 2 === 0) {
-        summa = summa + CurNum;
+for (curNum of array) {
+    if (curNum % 2 === 0) {
+        summa = summa + curNum;
     }
 }
 console.log(summa);
