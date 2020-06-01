@@ -13,7 +13,7 @@
 
 const f = function (myNumber) {
     if (typeof myNumber == 'number' || isFinite(myNumber) === true || isNaN(myNumber) === false){
-        return myNumber ** 3;
+        return Math.pow(myNumber, 3);
     } else {
         throw new Error('Error!!!');
     };

@@ -25,7 +25,7 @@ const getDivisors = function (myNum) {
     if (isNumber(myNum) === false){
         throw new Error('Error!!!');
     } else {
-        for (i = 1; i <= myNum; i++) {
+        for (let i = 1; i <= myNum; i++) {
             if ( myNum % i === 0) {
                 array.push(i);
             }

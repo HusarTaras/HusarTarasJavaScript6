@@ -31,7 +31,7 @@ const isCorrectParam = function (arg) {
 
 const f = function(myArray) {
     if  (isCorrectParam(myArray)) {
-        let newArray = myArray.map(function functionMap(item){ console.log(item)});
+        let newArray = myArray.forEach(function functionMap(item){ console.log(item)});
     }
 
     return;

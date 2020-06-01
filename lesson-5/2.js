@@ -9,17 +9,27 @@
  */
 
 // Решение
+const isNumber = function (num) {
+    if (typeof num == 'number' || isFinite(num) === true || isNaN(num) === false){
+        return true;
+    } else {
+        throw new Error('Error!!!');
+    }
+};
 
 const f = function () {
     let sum = 0;
     let numberOfArguments = arguments.length;
 
-    for (i = 0; i < numberOfArguments; i++) {
-            if (typeof arguments[i] == 'number' || isFinite(arguments[i]) === true || isNaN(arguments[i]) === false){
-                sum = sum + arguments[i];
-            } else {
-                throw new Error('Error!!!');
-            }
+    for (let i = 0; i < numberOfArguments; i++) {
+        try {
+            isNumber(arguments[i]);
+            sum = sum + arguments[i];
+        }
+        catch(err) {
+            console.log(err);
+            return ;
+        }
     }
 
     return sum;

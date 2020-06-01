@@ -13,20 +13,27 @@ const isNumber = function (num) {
     if (typeof num == 'number' || isFinite(num) === true || isNaN(num) === false){
         return true;
     } else {
-        return false;
+        throw new Error('Error!!!');
     }
 };
 
 const f = function (myNumber1, myNumber2, myNumber3) {
     let numberOfArguments = arguments.length;
 
-    for (i = 0; i < numberOfArguments; i++) {
-        if (isNumber(arguments[i]) === false) {
-            throw new Error('Error!!!');
+    for (let i = 0; i < numberOfArguments; i++) {
+        try {
+            isNumber(arguments[i]);
+        }
+        catch(err) {
+            console.log(err);
+            return ;
         }
     }
+    if (myNumber3 > 0) {
+        return (myNumber1 - myNumber2) / myNumber3;
+    }
 
-    return (myNumber1 - myNumber2) / myNumber3;
+    return;
 };
 
 console.log(f(9, 3, 2)); // 3
