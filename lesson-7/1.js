@@ -31,23 +31,23 @@ const array = [
 
 // Решение
 
-const iaArray = function (cArray) {
+const isArray = function (cArray) {
     if (Array.isArray(cArray) === false) {
         throw new Error('Error!!!');
     }
 };
 
-const inspect = function (insoectArray) {
+const inspect = function (inspectArray) {
     let resultArray;
 
     try {
-        iaArray(insoectArray);
+        isArray(inspectArray);
     } catch (err) {
         console.log(err);
         return;
     }
 
-    resultArray = insoectArray.filter(item => typeof(item) === 'string').map(item => item.length);
+    resultArray = inspectArray.filter(item => typeof(item) === 'string').map(item => item.length);
 
     return resultArray;
 };

@@ -31,18 +31,18 @@ const isCorrectTypes = function(myNumber) {
     }
 };
 
-const createArray = function(fillElement, lengthOfArray) {
+const createArray = function(fillElements, lengthOfArray) {
     let newArray = new Array(lengthOfArray);
 
     try {
-        isCorrectTypes(fillElement);
+        isCorrectTypes(fillElements);
         isNumber(lengthOfArray);
     } catch (err) {
         console.log(err);
         return;
     }
 
-    newArray.fill(fillElement) ;
+    newArray.fill(fillElements) ;
 
     return newArray;
 };

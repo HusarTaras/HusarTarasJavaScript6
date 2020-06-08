@@ -32,6 +32,10 @@ const isNumber = function(cArray) {
     }
 };
 
+const flatRecursive =function (inputArray) {
+    return inputArray.reduce((acc, val) => Array.isArray(val) ? acc.concat(flatRecursive(val)) : acc.concat(val), []);
+}
+
 const collect = function (collectArray) {
     let summa;
 
@@ -42,9 +46,7 @@ const collect = function (collectArray) {
         return;
     }
 
-    while (collectArray.some(element => Array.isArray(element))) {
-        collectArray = collectArray.flat();
-    }
+    collectArray = flatRecursive(collectArray);
 
     try {
         isNumber(collectArray);
