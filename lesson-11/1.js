@@ -21,23 +21,24 @@ const TOTAL_ITERATIONS = 105;
 let invocations = 0;
 
 function createNumberGenerator() {
-    const generatedNumbers = [];
-    generatedNumbers.length = 100;
+    const maximalValue = 100;
+    const generatedNumbers = new Set();
 
-    generatedNumbers.fill(0);
     return function () {
-        if (generatedNumbers.find(element => element === 0) === undefined ) {
+        let currentItem;
+        let currentSetSize;
+
+        if (generatedNumbers.size === maximalValue) {
             throw new Error ('There are no more numbers available');
         }
-        while (true) {
-            let currentItem = Math.floor(Math.random() * 100) + 1;
 
-            if (generatedNumbers[currentItem - 1] === 0) {
-                generatedNumbers[currentItem - 1] = currentItem;
-
-                return currentItem;
-            }
+        currentSetSize = generatedNumbers.size;
+        while (currentSetSize === generatedNumbers.size) {
+            currentItem = Math.floor(Math.random() * maximalValue) + 1;
+            generatedNumbers.add(currentItem);
         }
+
+        return currentItem;
     }
 }
 

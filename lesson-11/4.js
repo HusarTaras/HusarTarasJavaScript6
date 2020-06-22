@@ -32,8 +32,6 @@ const returnIdentity = n => n;
 const sum = (a, b) => a + b;
 const returnNothing = () => {};
 
-const arrayOfMethodCallHistory = [];
-
 const isFunction = function (inputFunction) {
     if (typeof inputFunction === 'function') {
         return true;
@@ -44,6 +42,7 @@ const isFunction = function (inputFunction) {
 
 const createLogger = function () {
     let printArray =[];
+    let arrayOfMethodCallHistory = [];
 
     const object = {
 
@@ -53,13 +52,13 @@ const createLogger = function () {
             return printArray;
         },
 
-        call: function (func, ...paramss) {
+        call: function (func, ...parameters) {
             isFunction(func);
-            let result = func(paramss[0], paramss[1]);//
+            let result = func(parameters[0], parameters[1]);//
 
             arrayOfMethodCallHistory.push({
                 name: func.name,
-                in:   paramss.filter(element => element !== undefined),
+                in:   parameters.filter(element => element !== undefined),
                 out:  result,
             });
 
