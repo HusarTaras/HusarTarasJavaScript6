@@ -29,23 +29,26 @@ function CleanerRobot(
     const onReady = () =>
         console.log(`Уборка завершена. Осталось заряда батареи: ${energy}.`);
 
+
     this.clean = () => {
         const cleaningTime = getCleaningTime();
 
         console.log(
             `Начинаю процесс уборки. Время уборки: ${cleaningTime} часов.`,
         );
+        energy -=  ENERGY_CONSUMPTION * cleaningTime ;
+
 
         /* Для удобства время уборки сокращено до формата 1 час = 1 секунда */
-        setTimeout(onReady, cleaningTime * 1000);
+        timerId =  setTimeout(onReady, cleaningTime * 1000);
+
     };
 
     // Решение
 
     this.stop = () => {
-        energy = initialEnergy - ENERGY_CONSUMPTION * this.clean() / 1000;
         clearTimeout(timerId);
-        console.log(`Спустя ${this.clean()} секунд: Уборка завершена. Осталось заряда батареи: ${energy}`);//
+        console.log(`Спустя ${timerId} секунд: Уборка завершена. Осталось заряда батареи: ${energy}`);//
     }
 
 }
