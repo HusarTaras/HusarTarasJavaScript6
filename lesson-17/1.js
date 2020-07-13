@@ -17,7 +17,7 @@
 
 // Решение
 
-const rezultArray = [];
+let quantity = 0;
 
 const isNumber = (...params) => {
     for (let item in params) {
@@ -29,44 +29,32 @@ const isNumber = (...params) => {
     }
 }
 
-(function () {
-    setTimeout(() => {
-        getRezult();
-    }, 0);
-}())
-
-function getRezult() {
-
-    for (i = 0; i < rezultArray.length; i++) {
-        //console.log(rezArr[i]);
-        let [num, delay] = rezultArray[i];
-
-        setTimeout(() => {
-            console.log(num);
-        }, delay * (i + 1));
-    }
-}
-
 function postpone (start, end, delay) {
     try {
         isNumber (start, end, delay);
-        let right = (start < end);
+        if (start < end) {
+            for (let i = start; i <= end ; i++) {
+                let currentMove = i;
+                quantity++;
+                setTimeout(()=> {
+                    console.log(currentMove);
+                }, delay * quantity);
+            }
 
-        if (!right) {[end, start] = [start, end]}
-        for (let i = start; i <= end ; i++) {
-            if (right) {
-                rezultArray.push([i, delay]);
-            }else {
-                rezultArray.push([end + 1 - i, delay]);
-            };
+        } else {
+            for (let i = start ; i >= end ; i--) {
+                let currentMove = i;
+                quantity++;
+                setTimeout(()=> {
+                    console.log(currentMove);
+                }, delay * quantity);
+            }
         }
     } catch(err) {
         console.log(err);
         return;
     }
 }
-
-
 
 
 postpone(1, 3, 1000);
